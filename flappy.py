@@ -6,7 +6,7 @@ import pygame
 from pygame.locals import *
 
 
-FPS = 30
+FPS = 60
 SCREENWIDTH  = 288
 SCREENHEIGHT = 512
 # amount by which base can maximum shift to left
@@ -210,11 +210,11 @@ def mainGame(movementInfo):
     pipeVelX = -4
 
     # player velocity, max velocity, downward accleration, accleration on flap
-    playerVelY    =  -9   # player's velocity along Y, default same as playerFlapped
-    playerMaxVelY =  10   # max vel along Y, max descend speed
-    playerMinVelY =  -8   # min vel along Y, max ascend speed
-    playerAccY    =   1   # players downward accleration
-    playerFlapAcc =  -9   # players speed on flapping
+    playerVelY    =  -4.5   # player's velocity along Y, default same as playerFlapped
+    playerMaxVelY =  5   # max vel along Y, max descend speed
+    playerMinVelY =  -4   # min vel along Y, max ascend speed
+    playerAccY    =   0.5   # players downward accleration
+    playerFlapAcc =  -4.5   # players speed on flapping
     playerFlapped = False # True when player flaps
 
 
@@ -329,7 +329,7 @@ def showGameOverScreen(crashInfo):
             playery += min(playerVelY, BASEY - playery - playerHeight)
 
         # player velocity change
-        if playerVelY < 15:
+        if playerVelY < 7.5:
             playerVelY += playerAccY
 
         # draw sprites
